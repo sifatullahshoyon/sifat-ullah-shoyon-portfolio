@@ -1,7 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 import Head from "next/head";
+import profilePic from "../assets/images/profile-pic.png"
+import Image from "next/image";
+import Sidebar from "@/components/Sidebar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,22 +43,25 @@ export default function RootLayout({ children }) {
               className="drawer-overlay"
             ></label>
 
-            <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+            <ul className="menu bg-[#131313] text-base-content min-h-full w-80 p-4">
               {/* title  */}
-              <div className="flex mb-8 gap-2 items-centers pr-8">
+              <div className="flex gap-2 items-centers">
+                {/* Info Start */}
+                <div className="flex items-center gap-5 my-10">
                 <div className="avatar">
-                  <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    {/* <img src={user?.photoURL || `${userPhoto}`} />{" "} */}
+                  <div className="w-12 h-12 rounded">
+                    <Image src={profilePic} alt="profile pic" loading="lazy" />
                   </div>
                 </div>
-                <h1 className="font-bold  pl-3 text-3xl">Jimmy smith</h1>
+                <div className="flex flex-col">
+                <h1 className="font-bold text-base text-white">SIFAT ULLAH SHOYON</h1>
+                <p className="text-sm mt-1">Front End Developer</p>
+                </div>
+                </div>
+                {/* Info Ends */}
               </div>
               {/* Sidebar content here */}
-              <ul>
-                <li>
-                  <Link href="">{/* <FaHome /> Admin Home */} home</Link>
-                </li>
-              </ul>
+              <Sidebar />
             </ul>
           </div>
         </div>
